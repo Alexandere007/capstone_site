@@ -17,7 +17,8 @@ function GetGarbage() {
 
 function AddGarbage(data) {
     return new Promise((resolve, reject) => {
-        admin.firestore().collection('Garbage').add({time: data.time, geoLocation: {lat: data.geoLocation.lat, lng: data.geoLocation.lng}, image: data.image})
+        console.log("ADDED")
+        admin.firestore().collection('Garbage').add({time: new Date(), geoLocation: {lat: data.geoLocation.lat, lng: data.geoLocation.lng}, image: data.image})
             .then(()=>resolve("Added"))
             .catch(catchError=>{
                 reject(catchError)
